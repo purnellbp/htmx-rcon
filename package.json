@@ -1,19 +1,20 @@
 {
   "name": "rcon-htmx",
   "version": "1.0.0",
-  "description": "Source RCON to WebSocket bridge for htmx. Zero dependencies. Connect your htmx UI to any Source RCON game server over WSS.",
+  "description": "Source RCON and Rust WebSocket RCON bridge for htmx. Connect your htmx UI to game servers over WSS. Minimal deps: ws.",
   "main": "index.js",
   "keywords": [
     "rcon",
     "htmx",
     "websocket",
     "source-rcon",
+    "rust",
     "game-server",
     "cs2",
     "valve",
     "bridge"
   ],
-  "author": "",
+  "author": "Brian Purnell",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
@@ -22,12 +23,15 @@
     "ws": ">=8.0.0"
   },
   "dependencies": {
-    "express": "^5.2.1",
     "ws": ">=8.0.0"
   },
   "files": [
     "index.js",
     "lib/",
     "README.md"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/purnellbps/htmx-nonsense.git"
+  }
 }
