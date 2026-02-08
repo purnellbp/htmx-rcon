@@ -1,8 +1,8 @@
 # rcon-htmx
 
-Source RCON to WebSocket bridge for [htmx](https://htmx.org). Zero dependencies beyond Node.js built-ins + the `ws` package.
+Source RCON and Rust (WebSocket RCON) bridge for [htmx](https://htmx.org). Uses Node.js built-ins plus the `ws` package.
 
-Connect your htmx frontend to any Source RCON game server (CS2, Garry's Mod, Rust, ARK, etc.) over secure WebSockets. The package handles the binary RCON protocol and gives you HTML responses with `hx-swap-oob` attributes — you build the UI however you want.
+Connect your htmx frontend to game servers over secure WebSockets: the library supports the **Source RCON** binary protocol (CS2, Garry's Mod, ARK, etc.) and **Rust** WebSocket RCON. You get HTML fragments (e.g. `hx-swap-oob`) and build the UI however you want.
 
 ## Why
 
@@ -235,6 +235,34 @@ AUTH_MODE=client node example/server.js
 ```
 
 Then open `http://localhost:3001`.
+
+## Demo (Vercel)
+
+The `demo/` app is a minimalist, almost full-screen RCON console that runs on **Vercel** (serverless). Users enter Rust server host, port, and RCON password in the UI; no env vars for credentials.
+
+- **Commands** — `POST /api/rcon` (stateless, one shot per command).
+- **Live server traffic** — `GET /api/stream` holds a WebSocket to the Rust server and streams unsolicited messages (chat, events) over SSE; htmx’s SSE extension appends them to the console.
+
+Stack: htmx and htmx-ext-sse from **npm** (no CDN), served from `node_modules` (dev server and Vercel via `postinstall` copy into `public/`).
+
+### Run locally
+
+```bash
+cd demo
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`, enter your Rust server’s host, port, and RCON password, then connect.
+
+### Deploy to Vercel
+
+```bash
+cd demo
+vercel --prod
+```
+
+No build step required; Vercel runs `npm install` (which runs `postinstall` to copy htmx assets into `public/`). Ensure your Rust server allows RCON connections from the internet if you connect from the deployed URL.
 
 ## HTTPS / Production
 
