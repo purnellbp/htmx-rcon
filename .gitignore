@@ -31,4 +31,10 @@ coverage/
 PUBLISHING.md
 .DS_Store
 
+.next/
 
+.vercel/
+
+.env
+.env.*
+!.env.example

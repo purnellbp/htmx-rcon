@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/stream.js": {
+      "maxDuration": 300
+    }
+  }
+}

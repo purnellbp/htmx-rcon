@@ -1,6 +1,6 @@
 {
   "name": "rcon-htmx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Source RCON and Rust WebSocket RCON bridge for htmx. Connect your htmx UI to game servers over WSS. Minimal deps: ws.",
   "main": "index.js",
   "keywords": [
