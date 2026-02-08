@@ -1,0 +1,33 @@
+{
+  "name": "rcon-htmx",
+  "version": "1.0.0",
+  "description": "Source RCON to WebSocket bridge for htmx. Zero dependencies. Connect your htmx UI to any Source RCON game server over WSS.",
+  "main": "index.js",
+  "keywords": [
+    "rcon",
+    "htmx",
+    "websocket",
+    "source-rcon",
+    "game-server",
+    "cs2",
+    "valve",
+    "bridge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "peerDependencies": {
+    "ws": ">=8.0.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "ws": ">=8.0.0"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "README.md"
+  ]
+}
