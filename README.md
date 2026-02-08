@@ -222,35 +222,6 @@ CSS classes you can style:
 - `.rcon-info` — info message (connect, disconnect)
 - `.rcon-status` — connection status badge (has `.connected` or `.disconnected`)
 
-## Demo (Vercel)
-
-The `demo/` app is a minimalist, almost full-screen RCON console that runs on **Vercel** (serverless). Users enter Rust server host, port, and RCON password in the UI; no env vars for credentials.
-
-- **Commands** — `POST /api/rcon` (stateless, one shot per command).
-- **Live server traffic** — `GET /api/stream` holds a WebSocket to the Rust server and streams unsolicited messages (chat, events) over SSE; htmx’s SSE extension appends them to the console.
-
-Stack: htmx and htmx-ext-sse from **npm** (no CDN), served from `node_modules` (dev server and Vercel via `postinstall` copy into `public/`).
-
-### Run locally
-
-```bash
-cd demo
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000`, enter your Rust server’s host, port, and RCON password, then connect.
-
-### Deploy to Vercel
-
-```bash
-cd demo
-vercel --prod
-```
-
-No build step required; Vercel runs `npm install` (which runs `postinstall` to copy htmx assets into `public/`). Ensure your Rust server allows RCON connections from the internet if you connect from the deployed URL.
-
-**Live stream staying open:** The SSE stream (`/api/stream`) is configured for up to 5 minutes (`maxDuration: 300` in `vercel.json`). On Vercel, keep **Fluid Compute** enabled (Settings → Functions) so the function can run that long; with it disabled, Hobby is limited to 10s default / 60s max and the stream will close too soon.
 
 ## HTTPS / Production
 

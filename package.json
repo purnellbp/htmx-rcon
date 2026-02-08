@@ -32,6 +32,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/purnellbp/htmx-rcon.git"
+    "url": "git+https://github.com/purnellbp/htmx-rcon.git"
   }
 }
